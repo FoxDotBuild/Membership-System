@@ -1,6 +1,6 @@
 class CreateUsers < ActiveRecord::Migration[5.2]
   def change
-    create_table :member do |t|
+    create_table :members do |t|
       t.string  :alias,         null: true
       t.integer :kisi_actor_id, null: false
 
