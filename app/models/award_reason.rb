@@ -1,0 +1,2 @@
+class AwardReason < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class AwardIssuance < ApplicationRecord
+end
