@@ -1,4 +1,4 @@
-class WebhookController < ApplicationController
+class WebHooksController < ApplicationController
   class KisiEntry < Mutations::Command
     VISIT               = "You visitied the space"
     # How much a single visit is worth in XP Points.
@@ -58,6 +58,6 @@ class WebhookController < ApplicationController
   end
 
   def whatever
-    render raw: "We have #{Member.count} members"
+    render plain: "We have #{Member.count} members"
   end
 end

@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2018_11_10_215359) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "member", force: :cascade do |t|
+  create_table "members", force: :cascade do |t|
     t.string "alias"
     t.integer "kisi_actor_id", null: false
     t.datetime "created_at", null: false
