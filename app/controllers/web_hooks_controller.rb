@@ -39,7 +39,7 @@ class WebHooksController < ApplicationController
     def execute
       AwardIssuance.create!(bounty: DEFAULT_VISIT_WORTH,
                             reason: AWARD_REASON,
-                            user:   user)
+                            member:   member)
     end
 
     private

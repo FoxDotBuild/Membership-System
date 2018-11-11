@@ -10,7 +10,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
     create_table :award_issuances do |t|
       t.integer    :bounty, null: false, default: 0
       t.references :reason
-      t.references :user,   null: false
+      t.references :member, null: false
       t.timestamps
     end
 
