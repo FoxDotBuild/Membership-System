@@ -1,5 +1,5 @@
 class Member < ApplicationRecord
-  API_KEY = ENV.fetch("kisi_api_token")
+  API_KEY = ENV.fetch("KISI_API_KEY")
 
   def maybe_set_alias
     return if self.alias.present?
