@@ -11,7 +11,6 @@ gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 gem "mutations"
-gem ""
 
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
