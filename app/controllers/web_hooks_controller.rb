@@ -30,7 +30,7 @@ class WebHooksController < ApplicationController
 
     def validate
       too_many = AwardIssuance
-        .where(kisi_actor_id: actor_id, created_at: time_range)
+        .where(member_id: actor_id, created_at: time_range)
         .any?
 
       add_error :too_many, :too_many, "too many" if too_many
