@@ -4,6 +4,7 @@ class Member < ApplicationRecord
   def maybe_set_alias
     return if alias.present?
     json = JSON.parse(`curl -H "Authorization:KISI-LOGIN #{API_KEY}" https://api.getkisi.com/members?user_id=#{id}`)
-    update_attributes!(name: json.fetch("name"))
+    first_n, last_n = json.fetch("name").split(" ")
+    update_attributes!(name: [first_n, last_n.first].join(" "))
   end
 end
