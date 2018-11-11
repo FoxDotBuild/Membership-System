@@ -63,6 +63,10 @@ class WebHooksController < ApplicationController
   end
 
   def whatever
+    # {
+    #   "alias": points,
+    #   "Rick C": 496
+    # }.to_a.map{|pair| pair.join(" ")}
     render plain: "We have #{Member.count} members"
   end
 end
