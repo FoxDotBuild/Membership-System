@@ -15,11 +15,11 @@ ActiveRecord::Schema.define(version: 2018_11_10_215359) do
   create_table "award_issuances", force: :cascade do |t|
     t.integer "bounty", default: 0, null: false
     t.integer "reason_id"
-    t.integer "user_id", null: false
+    t.integer "member_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_award_issuances_on_member_id"
     t.index ["reason_id"], name: "index_award_issuances_on_reason_id"
-    t.index ["user_id"], name: "index_award_issuances_on_user_id"
   end
 
   create_table "award_reasons", force: :cascade do |t|

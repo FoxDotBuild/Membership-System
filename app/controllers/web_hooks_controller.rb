@@ -1,5 +1,7 @@
 class WebHooksController < ApplicationController
   class KisiEntry < Mutations::Command
+    # puts WebHooksController::KisiEntry.run({actor_id: 12, success: true,
+    #                                         action: "unlock", actor_type: "User", object_type: "Lock"}).errors.message_list
     # Actor can't be nil; Action isn't an option; Actor Type can't be nil; Object Type isn't an option
     VISIT               = "You visitied the space"
     # How much a single visit is worth in XP Points.
@@ -37,9 +39,9 @@ class WebHooksController < ApplicationController
     end
 
     def execute
-      AwardIssuance.create!(bounty: DEFAULT_VISIT_WORTH,
-                            reason: AWARD_REASON,
-                            member:   member)
+      AwardIssuance.create!(bounty:    DEFAULT_VISIT_WORTH,
+                            reason_id: AWARD_REASON.id,
+                            member_id: member.id)
     end
 
     private
