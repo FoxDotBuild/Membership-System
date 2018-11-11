@@ -1,5 +1,6 @@
 class WebHooksController < ApplicationController
   class KisiEntry < Mutations::Command
+    # Actor can't be nil; Action isn't an option; Actor Type can't be nil; Object Type isn't an option
     VISIT               = "You visitied the space"
     # How much a single visit is worth in XP Points.
     DEFAULT_VISIT_WORTH = 60
@@ -47,15 +48,15 @@ class WebHooksController < ApplicationController
       (Time.now - TIME_SLICE)..Time.now
     end
 
-    def user
-      @user ||= User.find_or_create_by!(kisi_actor_id: actor_id)
+    def member
+      @member ||= Member.find_or_create_by!(kisi_actor_id: actor_id)
     end
   end
 
   skip_before_action :verify_authenticity_token
 
   def kisi
-    KisiEntry.run!(raw_json)
+    KisiEntry.run(raw_json)
     render json: "ok!"
   end
 
