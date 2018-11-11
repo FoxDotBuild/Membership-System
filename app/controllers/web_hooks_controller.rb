@@ -63,10 +63,11 @@ class WebHooksController < ApplicationController
   end
 
   def whatever
-    # {
-    #   "alias": points,
-    #   "Rick C": 496
-    # }.to_a.map{|pair| pair.join(" ")}
-    render plain: "We have #{Member.count} members"
+    result = {}
+    Member.all.each do |item|
+      result[item.alias] = AwardIssuance.where(member_id: item.id).pluck(:bounty).reduce(:+)
+    end
+
+    render plain: result.to_a.map{|pair| pair.join(": ")}.join("\n")
   end
 end
