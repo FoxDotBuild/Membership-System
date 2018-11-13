@@ -20,9 +20,8 @@ class KisiEntry < Mutations::Command
   end
 
   def validate
-    too_many = AwardIssuance
-      .where(member_id: actor_id, created_at: time_range)
-      .any?
+    too_many = \
+      AwardIssuance.where(member_id: member.id, created_at: time_range).any?
 
     add_error :too_many, :too_many, "too many" if too_many
   end
