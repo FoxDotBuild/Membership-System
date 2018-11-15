@@ -15,6 +15,6 @@ class WebHooksController < ApplicationController
                             .reduce(:+)
     end
 
-    render plain: result.to_a.sort_by{|x| x.last}.map{|pair| pair.join(": ")}.join("\n")
+    render plain: result.to_a.sort_by{|x| x.last}.reverse.map{|pair| pair.join(": ")}.join("\n")
   end
 end
