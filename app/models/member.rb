@@ -7,6 +7,6 @@ class Member < ApplicationRecord
     full_name = (json || [])[0]["name"]
     return unless full_name
     first_n, last_n = full_name.split(" ")
-    update_attributes!(alias: [first_n, (last_n || "_").first].join(" "))
+    update_attributes!(alias: [first_n.split("@").first, (last_n || "_").first].join(" "))
   end
 end
