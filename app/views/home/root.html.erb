@@ -1,0 +1,6 @@
+<h1>Rankings: All Time</h1>
+<ul>
+  <% @result.each do |row| %>
+    <li><%= row.last %>: <%= row.first %></li>
+  <% end %>
+</ul>
