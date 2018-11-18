@@ -8,7 +8,7 @@ class KisiEntry < Mutations::Command
   TIME_SLICE          = 6.hours
   SLACK               = Slack::Notifier.new(ENV.fetch("SLACK_URL", "???"),
                                             channel: "#who_is_in_the_shop",
-                                            username: "Shop_Bot")
+                                            username: "Foxy McFoxFace")
   # OTHER STUFF WE DONT USE ================================================
   # integer(:id), integer(:object_id), string(:code), string(:created_at),
   # string(:message), array(:references) { interger(:id); string(:type) }
