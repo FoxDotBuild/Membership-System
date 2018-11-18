@@ -1,6 +1,8 @@
+<h1>Rankings: Past 2 Days</h1>
+<%= render partial: "leaderboard", locals: { result: @day } %>
+
+<h1>Rankings: Last Week</h1>
+<%= render partial: "leaderboard", locals: { result: @week } %>
+
 <h1>Rankings: All Time</h1>
-<ul>
-  <% @result.each do |row| %>
-    <li><%= row.last %>: <%= row.first %></li>
-  <% end %>
-</ul>
+<%= render partial: "leaderboard", locals: { result: @all_time } %>
