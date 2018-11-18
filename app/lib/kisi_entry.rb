@@ -39,7 +39,8 @@ class KisiEntry < Mutations::Command
 
   def maybe_slack_it
     if ENV["SLACK_URL"] && member.alias
-      raise "NOT DONE"
+      KisiEntry::SLACK.ping("Ladies and gentlemen, "\
+                            "#{member.alias} HAS ENTERED THE BUILDING :tada:")
     end
   end
 
