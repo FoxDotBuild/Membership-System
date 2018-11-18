@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   def root
     @day      = leadboard_for(since: 2.days.ago)
     @week     = leadboard_for(since: 1.week.ago)
-    @all_time = leadboard_for(since: nil)
+    @all_time = leadboard_for(since: 10.years.ago)
   end
 private
 
@@ -12,7 +12,8 @@ private
     Member
       .all
       .reduce({}) do |result, item|
-        result.update(item.alias => item.total_points(since: since))
+        result[item.alias] = item.total_points(since: since)
+        result
       end
       .to_a
       .sort_by { |x| x.last }
