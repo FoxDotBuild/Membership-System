@@ -16,7 +16,7 @@ private
         result
       end
       .to_a
-      .sort_by { |x| x.last }
+      .sort_by { |x| x.last || 0 }
       .reverse
   end
 end
