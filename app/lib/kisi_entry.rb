@@ -6,7 +6,9 @@ class KisiEntry < Mutations::Command
   AWARD_REASON        = AwardReason.find_or_create_by(name: VISIT)
   THIS_TIMEFRAME      = "created_at > ?"
   TIME_SLICE          = 6.hours
-
+  SLACK               = Slack::Notifier.new(ENV.fetch("SLACK_URL", "???"),
+                                            channel: "#who_is_in_the_shop",
+                                            username: "Shop_Bot")
   # OTHER STUFF WE DONT USE ================================================
   # integer(:id), integer(:object_id), string(:code), string(:created_at),
   # string(:message), array(:references) { interger(:id); string(:type) }
@@ -27,12 +29,19 @@ class KisiEntry < Mutations::Command
   end
 
   def execute
+    maybe_slack_it
     AwardIssuance.create!(bounty:    DEFAULT_VISIT_WORTH,
                           reason_id: AWARD_REASON.id,
                           member_id: member.id)
   end
 
   private
+
+  def maybe_slack_it
+    if ENV["SLACK_URL"] && member.alias
+      raise "NOT DONE"
+    end
+  end
 
   def time_range
     (Time.now - TIME_SLICE)..Time.now
