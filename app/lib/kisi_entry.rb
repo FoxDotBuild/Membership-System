@@ -32,7 +32,7 @@ class KisiEntry < Mutations::Command
     maybe_slack_it
     AwardIssuance.create!(bounty:    DEFAULT_VISIT_WORTH,
                           reason_id: AWARD_REASON.id,
-                          member_id: member.id)
+                          member_id: member.id) unless member.alias.downcase.include?("ethan")
   end
 
   private
