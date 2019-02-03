@@ -53,3 +53,11 @@
 █████████████████████▓▒░                               ░▒▒█████████████████████
 █████████████████████████▓▒▒░                    ░░▒▓██████████████████████████
 ```
+
+# Attendance Tracker
+
+Shown on [the main page.](https://xp-system.herokuapp.com/) Awards members points for unlocking the door (max: 1 award per 6 hour window).
+
+# Guest Book
+
+Gets the name / email of visiting guests. [Shown here](https://xp-system.herokuapp.com/guest_book_entries/new).
