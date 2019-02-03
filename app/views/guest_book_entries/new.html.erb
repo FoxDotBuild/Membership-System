@@ -1,0 +1,19 @@
+<center>
+  <h1>Guest Sign In</h1>
+  <img src="/fox.png" />
+  <%= form_for @entry do |f| %>
+    <b>Name:</b>
+    <br>
+    <%= f.text_field :name %>
+    <br>
+    <b>Email:</b>
+    <br>
+    <%= f.text_field :email %>
+    <br>
+    <br>
+    <%= f.submit "Submit" %>
+  <% end %>
+  <br>
+  <b>TAB KEY:</b> Next form field.
+  <b>ENTER KEY:</b> Submit form.
+</center>

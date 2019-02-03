@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_10_215359) do
+ActiveRecord::Schema.define(version: 2019_02_03_202259) do
 
   create_table "award_issuances", force: :cascade do |t|
     t.integer "bounty", default: 0, null: false
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 2018_11_10_215359) do
 
   create_table "award_reasons", force: :cascade do |t|
     t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "guest_book_entries", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
