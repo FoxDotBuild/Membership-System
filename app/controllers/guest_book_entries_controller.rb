@@ -1,5 +1,5 @@
 class GuestBookEntriesController < ApplicationController
-  FIELDS = ["name", "email"]
+  FIELDS = ["name", "email", "referral", "misc"]
   SLACK  = Slack::Notifier.new(ENV.fetch("SLACK_URL", "???"),
                                channel: "#managers",
                                username: "Foxy McFoxFace")
@@ -13,9 +13,10 @@ class GuestBookEntriesController < ApplicationController
   ].join("\n")
 
   def create
-    p = params.fetch("guest_book_entry").permit(*FIELDS)
+    p   = params.fetch("guest_book_entry").permit(*FIELDS)
     gbe = GuestBookEntry.create!(p)
-    SLACK.ping(REPORT_TPL % gbe.as_json.deep_symbolize_keys)
+    tpl = gbe.as_json.deep_symbolize_keys
+    SLACK.ping(REPORT_TPL % tpl)
     redirect_to action: :new
   end
 
