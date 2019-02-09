@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_03_202259) do
+ActiveRecord::Schema.define(version: 2019_02_09_225009) do
 
   create_table "award_issuances", force: :cascade do |t|
     t.integer "bounty", default: 0, null: false
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 2019_02_03_202259) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "referral"
+    t.string "misc"
   end
 
   create_table "members", force: :cascade do |t|

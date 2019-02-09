@@ -8,8 +8,24 @@
     <br>
     <b>Email:</b>
     <br>
-    <%= f.text_field :email %>
+    <%= f.email_field :email %>
     <br>
+    <br>
+    <%= f.select :referral,
+        [
+          'Meetup.com',
+          'Facebook',
+          'Twitter',
+          'Chamber of Commerce',
+          'friend',
+          'another member',
+          'Other (please specify below)',
+        ],
+        prompt: "How did you hear about us?" %>
+    <br>
+    <b>Additonal comments (optional):</b>
+    <br>
+    <%= f.text_field :misc %>
     <br>
     <%= f.submit "Submit" %>
   <% end %>
