@@ -7,7 +7,7 @@
 
   .hacky-input {
     width: 100%;
-    height: 90px;
+    height: 80px;
   }
   @media screen and (max-width: 800px) {
    .no-small-screens { display: none; }
@@ -25,8 +25,7 @@
     <%= f.email_field :email, class: "hacky-input" %>
     <br>
     <br>
-    <%= f.select :referral,
-        [
+    <%= f.select(:referral,[
           "Meetup.com",
           "Facebook",
           "Twitter",
@@ -35,7 +34,9 @@
           "Another member",
           "Other (please specify below)",
         ],
-        prompt: "How did you hear about us?" %>
+        { prompt: "How did you hear about us?" },
+        { class: "hacky-input" })
+     %>
     <br>
     <h2>Additonal comments (optional):</h2>
     <br>
