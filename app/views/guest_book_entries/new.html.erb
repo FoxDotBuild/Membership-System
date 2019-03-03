@@ -1,5 +1,14 @@
 <center>
   <style>
+  /** Whatever -RC */
+  h1 {
+    height: 100px;
+  }
+
+  .hacky-input {
+    width: 100%;
+    height: 90px;
+  }
   @media screen and (max-width: 800px) {
    .no-small-screens { display: none; }
   }
@@ -7,13 +16,13 @@
   <h1>Guest Sign In</h1>
   <img src="/fox.png" class="no-small-screens" />
   <%= form_for @entry do |f| %>
-    <b>Name:</b>
+    <h2>Name:</h2>
     <br>
-    <%= f.text_field :name, autofocus: true, style: "width: 100%" %>
+    <%= f.text_field :name, autofocus: true, class: "hacky-input" %>
     <br>
-    <b>Email:</b>
+    <h2>Email:</h2>
     <br>
-    <%= f.email_field :email, style: "width: 100%" %>
+    <%= f.email_field :email, class: "hacky-input" %>
     <br>
     <br>
     <%= f.select :referral,
@@ -28,11 +37,11 @@
         ],
         prompt: "How did you hear about us?" %>
     <br>
-    <b>Additonal comments (optional):</b>
+    <h2>Additonal comments (optional):</h2>
     <br>
-    <%= f.text_field :misc, style: "width: 100%" %>
+    <%= f.text_field :misc, class: "hacky-input" %>
     <br>
-    <%= f.submit "Submit", style: "width: 100%" %>
+    <%= f.submit "Submit", class: "hacky-input" %>
   <% end %>
   <br>
   <b>TAB KEY:</b> Next form field.
