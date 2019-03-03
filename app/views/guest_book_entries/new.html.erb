@@ -4,11 +4,11 @@
   <%= form_for @entry do |f| %>
     <b>Name:</b>
     <br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, autofocus: true, style: "width: 100%" %>
     <br>
     <b>Email:</b>
     <br>
-    <%= f.email_field :email %>
+    <%= f.email_field :email, style: "width: 100%" %>
     <br>
     <br>
     <%= f.select :referral,
@@ -25,9 +25,9 @@
     <br>
     <b>Additonal comments (optional):</b>
     <br>
-    <%= f.text_field :misc %>
+    <%= f.text_field :misc, style: "width: 100%" %>
     <br>
-    <%= f.submit "Submit" %>
+    <%= f.submit "Submit", style: "width: 100%" %>
   <% end %>
   <br>
   <b>TAB KEY:</b> Next form field.
