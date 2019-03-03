@@ -1,6 +1,11 @@
 <center>
+  <style>
+  @media screen and (max-width: 800px) {
+   .no-small-screens { display: none; }
+  }
+  </style>
   <h1>Guest Sign In</h1>
-  <img src="/fox.png" />
+  <img src="/fox.png" class="no-small-screens" />
   <%= form_for @entry do |f| %>
     <b>Name:</b>
     <br>
