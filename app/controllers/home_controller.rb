@@ -19,5 +19,6 @@ private
       .select { |x| x.last }
       .sort_by { |x| x.last || 0 }
       .reverse
+      .last(30)
   end
 end
