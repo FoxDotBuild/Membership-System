@@ -1,5 +1,18 @@
-<ul>
-  <% result.each do |row| %>
-    <li><%= row.first %>: <%= row.last %></li>
-  <% end %>
-</ul>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Rank</th>
+      <th scope="col">Name</th>
+      <th scope="col">Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% result.each_with_index do |row, index| %>
+      <tr>
+        <th scope="row"><%= index+1 %></th>
+        <td><%= row.first %></td>
+        <td><%= row.last %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

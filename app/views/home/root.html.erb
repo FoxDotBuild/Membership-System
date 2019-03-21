@@ -1,8 +1,16 @@
-<h1>Rankings: Past 2 Days</h1>
-<%= render partial: "leaderboard", locals: { result: @day } %>
-
-<h1>Rankings: Last Week</h1>
-<%= render partial: "leaderboard", locals: { result: @week } %>
-
-<h1>Rankings: All Time</h1>
-<%= render partial: "leaderboard", locals: { result: @all_time } %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h1>All Time</h1>
+      <%= render partial: "leaderboard", locals: { result: @all_time } %>
+    </div>
+    <div class="col-sm-4">
+      <h1>Last Week</h1>
+      <%= render partial: "leaderboard", locals: { result: @week } %>
+    </div>
+    <div class="col-sm-4">
+      <h1>Past 2 Days</h1>
+      <%= render partial: "leaderboard", locals: { result: @day } %>
+    </div>
+  </div>
+</div>
