@@ -1,31 +1,21 @@
-<center>
-  <style>
-  /** Whatever -RC */
-  h1 {
-    height: 100px;
-  }
-
-  .hacky-input {
-    width: 100%;
-    height: 80px;
-  }
-  @media screen and (max-width: 800px) {
-   .no-small-screens { display: none; }
-  }
-  </style>
-  <h1>Guest Sign In</h1>
-  <img src="/fox.png" class="no-small-screens" />
+<div class="container">
+  <h1>Fox.Build Guest Book</h1>
   <%= form_for @entry do |f| %>
-    <h2>Name:</h2>
-    <br>
-    <%= f.text_field :name, autofocus: true, class: "hacky-input" %>
-    <br>
-    <h2>Email:</h2>
-    <br>
-    <%= f.email_field :email, class: "hacky-input" %>
-    <br>
-    <br>
-    <%= f.select(:referral,[
+    <div class="form-group">
+      <%= f.text_field :name,
+      autofocus: true,
+      class: "form-control",
+      id: "name",
+      type: "text",
+      placeholder: "Enter Name" %>
+    </div>
+    <div class="form-group">
+      <%= f.email_field :email,
+    class: "form-control",
+    placeholder: "Enter email" %>
+    </div>
+    <div class="form-group">
+      <%= f.select(:referral,[
           "Meetup.com",
           "Facebook",
           "Twitter",
@@ -35,16 +25,13 @@
           "Other (please specify below)",
         ],
         { prompt: "How did you hear about us?" },
-        { class: "hacky-input" })
-     %>
-    <br>
-    <h2>Additonal comments (optional):</h2>
-    <br>
-    <%= f.text_field :misc, class: "hacky-input" %>
-    <br>
-    <%= f.submit "Submit", class: "hacky-input" %>
+        { class: "form-control" }) %>
+    </div>
+    <div class="form-group">
+      <%= f.text_field :misc, class: "form-control", placeholder: "Comments (optional)" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
   <% end %>
-  <br>
-  <b>TAB KEY:</b> Next form field.
-  <b>ENTER KEY:</b> Submit form.
-</center>
+</div>

@@ -16,7 +16,7 @@ class GuestBookEntriesController < ApplicationController
     p   = params.fetch("guest_book_entry").permit(*FIELDS)
     gbe = GuestBookEntry.create!(p)
     tpl = gbe.as_json.deep_symbolize_keys
-    SLACK.ping(REPORT_TPL % tpl)
+    SLACK.ping(REPORT_TPL % tpl) if ENV["SLACK_URL"]
     redirect_to action: :new
   end
 
