@@ -11,5 +11,9 @@ namespace :members do
     emails = GuestBookEntry.where("created_at > ?", 1.week.ago).pluck(:email).uniq.reject { |x| !x.include?("@") }.join("\n")
     msg = HEADER + emails
     GuestBookEntriesController::SLACK.ping(msg)
+    # ActionMailer::Base.mail(from: "r@gfdf.com",
+    #                         to: "info@fox.build",
+    #                         subject: "SUBJECT HERE",
+    #                         body: msg).deliver_now
   end
 end
