@@ -15,11 +15,14 @@ Awards members points for unlocking the door via Kisi (max: 60 points per 6 hour
 ## Guest Book
 
 :point_right: [Demo App](https://xp-system.herokuapp.com/guest_book_entries/new).
+
 Gets the name and email of visiting guests.
 
 # Deploying to a Makerspace
 
  If you would like to host the app for use at your organization, perform the following:
+
+1. Click this button: [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy).
 
 # Local Setup
 
